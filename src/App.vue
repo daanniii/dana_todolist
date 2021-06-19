@@ -45,7 +45,7 @@ export default {
     'TodoList': TodoList,
     'TodoFooter': TodoFooter
   }
-}
+} 
 </script>
 
 <style>
