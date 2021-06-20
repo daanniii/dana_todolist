@@ -1,8 +1,8 @@
 <template>
   <section>
     <ul>
-      <li v-for="(todoItem, index) in todoItems" :key=todoItem class="shadow">
-        <i class="checkBtn fas fa-check" type="button" aria-hidden="ture"></i>
+      <li v-for="(todoItem, index) in propsdata" :key=todoItem class="shadow">
+        <i class="checkBtn fas fa-paw" type="button" aria-hidden="ture"></i>
         {{ todoItem }}
         <span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
           <i class="far fa-trash-alt" aria-hidden="true"></i>
@@ -14,24 +14,11 @@
 
 <script>
 export default {
-  data() {
-    return {
-      todoItems: []
-    }
-    
-  },
-
-  created() {
-    if(localStorage.length > 0) {
-      for(var i=0; i < localStorage.length; i++){
-        this.todoItems.push(localStorage.key(i));
-      }
-    }
-  },
+  props: ['propsdata'],
+  
   methods: {
     removeTodo(todoItem, index) {
-      localStorage.removeItem(todoItem);
-      this.todoItems.splice(index, 1);
+      this.$emit('removeTodo', todoItem, index);
       }
     },
   
@@ -41,6 +28,7 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
   ul {
     list-style-type: none;
     padding-left: 0px;
@@ -56,10 +44,11 @@ export default {
     padding: 0 0.9rem;
     background: white;
     border-radius: 5px;
+    font-family: 'Poor Story', cursive;
   }
   .checkBtn {
-    line-height: 45px;
-    color: #62acde;
+    line-height: 50px;
+    color: #4d045f;
     margin-right: 5px;
   }
   .removeBtn {

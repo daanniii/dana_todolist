@@ -8,7 +8,7 @@
 export default {
   methods: {
     clearTodo() {
-      localStorage.clear();
+      this.$emit('removeAll');
     }
   }
 }
@@ -19,12 +19,13 @@ export default {
     width:8.5rem;
     height: 50px;
     line-height: 50px;
-    background-color: white;
+    background-color: rgb(253, 232, 245);
     border-radius: 5px;
     margin: 0 auto;
   }
   .clearAllBtn {
     color: #e20303;
     display: black;
+    font-family: 'Poor Story', cursive;
   }
 </style>

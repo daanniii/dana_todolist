@@ -51,7 +51,7 @@ export default {
 <style>
   body {
     text-align: center;
-    background-color: #F6F6F8;
+    background-color: #f1d7ed;
   }
   input {
     border-style: groove;
